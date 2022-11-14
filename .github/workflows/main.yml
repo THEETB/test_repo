@@ -11,6 +11,4 @@ on:
 jobs:
   call-workflow:
     uses: ./.github/workflows/sample.yml
-    secrets:
-        username: ${{ secrets.Docker_Hub_Username }}
-        password: ${{ secrets.Docker_Hub_Password }}
+    secrets: inherit
