@@ -39,7 +39,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         env:
-          TAG_NAME: 2022q26-${{ env.date }}
+          TAG_NAME: "2022q26-${{ env.date }}"
         with:
           push: true
           context: ./OS_Utilities/
