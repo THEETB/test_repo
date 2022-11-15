@@ -43,4 +43,4 @@ jobs:
           context: ./OS_Utilities/
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/cp-os-utilities:"2022q26-${{ env.date }}"
+          tags: bala001/cp-os-utilities:2022q26-${{ env.date }}
