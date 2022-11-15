@@ -35,12 +35,12 @@ jobs:
       - name: Test with environment variables
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-        env:
-          TAG_NAME: 2022q26
-          RELEASE_NAME: ${{ env.date }}
 
       - name: Build and push
         uses: docker/build-push-action@v3
+        env:
+          TAG_NAME: 2022q26
+          RELEASE_NAME: ${{ env.date }}
         with:
           push: true
           context: ./OS_Utilities/
