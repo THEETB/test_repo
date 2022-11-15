@@ -41,6 +41,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          TAG_NAME: 9
           context: ./OS_Utilities/
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
