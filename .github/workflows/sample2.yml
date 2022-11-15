@@ -19,6 +19,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout 
         uses: actions/Checkout@v3
+        with:
+          ref: ${{ github.event.client_payload.sha }}
             
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
