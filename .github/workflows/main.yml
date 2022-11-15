@@ -21,8 +21,8 @@ jobs:
           echo $TAG_NAME - $RELEASE_NAME
           echo "date = $date"
         env:
-          TAG_NAME: nightly-tag-${{date}}
-          RELEASE_NAME: nightly-release-${{date}}
+          TAG_NAME: nightly-tag- $date
+          RELEASE_NAME: nightly-release- $date
 #   call-workflow:
 #     uses: ./.github/workflows/sample.yml
 #     secrets: inherit
