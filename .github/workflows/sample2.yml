@@ -45,4 +45,4 @@ jobs:
           context: ./OS_Utilities/
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/cp-os-utilities:$TAG_NAME
+          tags: bala001/cp-os-utilities:${{ TAG_NAME }}
