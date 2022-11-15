@@ -39,11 +39,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         env:
-          TAG_NAME: 2022q26
-          RELEASE_NAME: ${{ env.date }}
+          TAG_NAME: 2022q26-${{ env.date }}
         with:
           push: true
           context: ./OS_Utilities/
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/cp-os-utilities:$TAG_NAME-$RELEASE_NAME
+          tags: bala001/cp-os-utilities:$TAG_NAME
