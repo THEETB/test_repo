@@ -13,5 +13,5 @@ jobs:
     uses: ./.github/workflows/sample.yml
     secrets: inherit
   call-workflow1:
-    uses: ./.github/workflow/sample2.yml
+    uses: ./.github/workflows/sample2.yml
     secrets: inherit
