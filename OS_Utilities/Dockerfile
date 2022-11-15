@@ -1,4 +1,4 @@
-FROM centos:$IMAGE_TAG
+FROM centos:$TAG_NAME
 
 RUN echo "installing centos rpms..." \
     && yum clean all \
