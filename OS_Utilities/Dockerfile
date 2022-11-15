@@ -1,4 +1,4 @@
-FROM centos:$TAG_NAME
+FROM centos:9
 
 RUN echo "installing centos rpms..." \
     && yum clean all \
