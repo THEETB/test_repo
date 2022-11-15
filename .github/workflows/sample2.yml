@@ -32,11 +32,9 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
 
-      - name: Get current date
+      - name: Test with environment variables
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-
-      - name: Test with environment variables
         env:
           TAG_NAME: 2022q26
           RELEASE_NAME: ${{ env.date }}
