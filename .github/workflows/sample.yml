@@ -35,12 +35,15 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
           tags: bala001/base_os:centos9
-      
-      - name: Trigger next workflow
-        if: success()
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_GHA_PAT }}
-          repository: ${{ github.repository }}
-          event-type: OS_Utilities
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+  dispatch:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+        - name: Trigger next workflow
+          if: success()
+          uses: peter-evans/repository-dispatch@v2
+          with:
+            token: ${{ secrets.REPO_GHA_PAT }}
+            repository: ${{ github.repository }}
+            event-type: event1
+#             client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
