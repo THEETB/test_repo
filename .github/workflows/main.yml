@@ -19,8 +19,8 @@ jobs:
       - name: Test with environment variables
         run: echo $TAG_NAME - $RELEASE_NAME
         env:
-          TAG_NAME: nightly-tag-${{ GITHUB_OUTPUT.date.outputs.date }}
-          RELEASE_NAME: nightly-release-${{ GITHUB_OUTPUT.date.outputs.date }}
+          TAG_NAME: nightly-tag-$GITHUB_OUTPUT
+          RELEASE_NAME: nightly-release-$GITHUB_OUTPUT
 #   call-workflow:
 #     uses: ./.github/workflows/sample.yml
 #     secrets: inherit
