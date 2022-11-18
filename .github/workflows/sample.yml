@@ -45,7 +45,7 @@ jobs:
       
       - name: checking the environment tag
         run: |
-          echo ${{ env.release_tags }}
+          echo $release_tag
       
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -56,4 +56,4 @@ jobs:
           cache-to: type=gha,mode=max
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ env.release_tag }}-${{ env.date }}
+          tags: bala001/centos:$release_tag-${{ env.date }}
