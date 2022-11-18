@@ -9,7 +9,7 @@ on:
     inputs:
       release_tag:
         description: "Defines the release tag for each layers"
-        default: ${{ secrets.RELEASE_TAG }}
+        default: ${{  secrets.RELEASE_TAG }}
         required: true
         type: string
         
