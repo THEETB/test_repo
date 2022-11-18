@@ -7,6 +7,12 @@ name: sample
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_call:
+    inputs:
+      release_tag:
+        description: "Defines the release tag for each layers"
+        default: ${{ secrets.RELEASE_TAG }}
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,5 +47,5 @@ jobs:
           cache-to: type=gha,mode=max
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:2022q26-${{ env.date }}
+          tags: bala001/centos:${{ inputs.release_tag }}-${{ env.date }}
       
