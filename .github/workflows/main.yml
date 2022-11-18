@@ -18,7 +18,7 @@ jobs:
   call-workflow:
     uses: ./.github/workflows/sample.yml
     secrets: inherit
-  call-workflow1:
-    needs: [call-workflow]
-    uses: ./.github/workflows/sample2.yml
-    secrets: inherit
+#   call-workflow1:
+#     needs: [call-workflow]
+#     uses: ./.github/workflows/sample2.yml
+#     secrets: inherit
