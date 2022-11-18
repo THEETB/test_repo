@@ -43,7 +43,7 @@ jobs:
       
       - name: checking the environment tag
         run: |
-          echo ${{ env.release_tag }}
+          echo ${{ env }}
       
       - name: Build and push
         uses: docker/build-push-action@v3
