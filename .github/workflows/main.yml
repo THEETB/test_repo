@@ -6,13 +6,19 @@ name: Test
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+    inputs:
+      release_tag:
+        description: "Defines the release tag for each layers"
+        default: ${{ secrets.GITHUB_RELEASE_TAG }}
+        required: true
+        type: string
+        
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   call-workflow:
     uses: ./.github/workflows/sample.yml
     secrets: inherit
-#   call-workflow1:
-#     needs: [call-workflow]
-#     uses: ./.github/workflows/sample2.yml
-#     secrets: inherit
+  call-workflow1:
+    needs: [call-workflow]
+    uses: ./.github/workflows/sample2.yml
+    secrets: inherit
