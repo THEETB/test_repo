@@ -41,6 +41,10 @@ jobs:
         id: release_tag
         run: echo "release_tag=${{ inputs.release_tag }}" >> $GITHUB_ENV
       
+      - name: checking the environment tag
+        run: |
+          echo ${{ env.release_tag }}
+      
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
