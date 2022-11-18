@@ -17,10 +17,7 @@ on:
 jobs:
   build-and-push:
      runs-on: ubuntu-latest
-     steps:
-#       - name: Testing
-#         run: echo ${{ inputs.release_tag }}
-          
+     steps:      
       - name: Checkout 
         uses: actions/Checkout@v3
             
@@ -36,10 +33,14 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
 
-      - name: Test with environment variables
+      - name: Setting up date environment variable
         id: date
         run: echo "date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-
+      
+      - name: Setting up release_tag environment variable
+        id: release_tag
+        run: echo "release_tag=${{ inputs.release_tag }}" >> $GITHUB_ENV
+      
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
@@ -49,4 +50,4 @@ jobs:
           cache-to: type=gha,mode=max
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ inputs.release_tag }}-${{ env.date }}
+          tags: bala001/centos:${{ env.release_tag }}-${{ env.date }}
