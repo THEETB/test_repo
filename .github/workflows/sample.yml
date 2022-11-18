@@ -8,7 +8,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_call:
     secrets:
-      release_tag:
+      RELEASE_TAG:
         description: "Defines the release tag for each layers"
         required: true
 
@@ -45,5 +45,5 @@ jobs:
           cache-to: type=gha,mode=max
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ inputs.release_tag }}-${{ env.date }}
+          tags: bala001/centos:${{ inputs.RELEASE_TAG }}-${{ env.date }}
       
