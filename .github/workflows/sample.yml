@@ -18,8 +18,8 @@ jobs:
   build-and-push:
      runs-on: ubuntu-latest
      steps:
-      - name: Testing
-        run: echo ${{ inputs.release_tag }}
+#       - name: Testing
+#         run: echo ${{ inputs.release_tag }}
           
       - name: Checkout 
         uses: actions/Checkout@v3
