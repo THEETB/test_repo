@@ -12,8 +12,6 @@ on:
         description: "Defines the release tag for each layers"
         required: true
         type: string
-env:
-  release_tag: ${{ inputs.release_tag }}
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,9 +33,9 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
 
-#       - name: Setting up release_tag environment variable
-#         id: release_tag
-#         run: echo "release_tag=${{ env.release_tag }}" >> $GITHUB_ENV
+      - name: Setting up release_tag environment variable
+        id: release_tag
+        run: echo "release_tag=${{ secrets.RELEASE_TAG }}" >> $GITHUB_ENV
 
       - name: Setting up date environment variable
         id: date
@@ -54,4 +52,4 @@ jobs:
           context: ./baseos/
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ secrets.RELEASE_TAG }}-${{ env.date }}
+          tags: bala001/centos:${{ env.release_tag }}-${{ env.date }}
