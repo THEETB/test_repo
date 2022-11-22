@@ -41,15 +41,12 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
       
-      - name: checking the environment tag
-        run: |
-          echo $release_tag
-      
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
           context: ./baseos/
+          tag_name: ${{ secrets.RELEASE_TAG }}
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ env.release_tag }}-${{ env.date }}
+          tags: bala001/centos:${{ secrets.RELEASE_TAG }} - ${{ env.date }}
