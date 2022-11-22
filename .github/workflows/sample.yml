@@ -35,7 +35,7 @@ jobs:
 
       - name: Setting up release_tag environment variable
         id: release_tag
-        run: echo "release_tag=${{ secrets.RELEASE_TAG }}" >> $GITHUB_ENV
+        run: echo "release_tag=2022q26" >> $GITHUB_ENV
 
       - name: Setting up date environment variable
         id: date
