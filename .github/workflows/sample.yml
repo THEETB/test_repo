@@ -49,4 +49,4 @@ jobs:
           tag_name: ${{ secrets.RELEASE_TAG }}
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
-          tags: bala001/centos:${{ secrets.RELEASE_TAG }} - ${{ env.date }}
+          tags: bala001/centos:$tag_name - ${{ env.date }}
