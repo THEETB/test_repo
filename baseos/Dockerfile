@@ -1,3 +1,4 @@
+ARG tag=${release_tag}
 FROM bala001/centos:$tag
 #FROM rhel:8.2-299
 
