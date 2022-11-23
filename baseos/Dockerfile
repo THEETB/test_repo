@@ -1,4 +1,4 @@
-FROM bala001/centos:$RELEASE_TAG
+FROM bala001/centos:$tag
 #FROM rhel:8.2-299
 
 RUN sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-* \
