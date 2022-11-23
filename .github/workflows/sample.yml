@@ -33,9 +33,9 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
 
-      - name: Setting up release_tag environment variable
-        id: release_tag
-        run: echo "release_tag=2022q26" >> $GITHUB_ENV
+#       - name: Setting up release_tag environment variable
+#         id: release_tag
+#         run: echo "release_tag=2022q26" >> $GITHUB_ENV
 
       - name: Setting up date environment variable
         id: date
