@@ -45,5 +45,3 @@ jobs:
           username: ${{ secrets.Docker_Hub_Username }}
           password: ${{ secrets.Docker_Hub_Password }}
           tags: bala001/centos:2022q26-${{ env.date }}
-#           build-args:
-#             "RELEASE_TAG=${{ env.tag }}-${{ env.date }}"
