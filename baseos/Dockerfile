@@ -1,5 +1,5 @@
-ARG tag=${{ release_tag }}
-FROM centos:${tag}
+ARG ${{ release_tag }}
+FROM centos:${{ release_tag }}
 #FROM rhel:8.2-299
 
 RUN sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-* \
