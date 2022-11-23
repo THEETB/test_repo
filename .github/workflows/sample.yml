@@ -47,4 +47,4 @@ jobs:
           password: ${{ secrets.Docker_Hub_Password }}
           tags: bala001/centos:${{ secrets.RELEASE_TAG }}-${{ env.date }}
           build-args: |
-            "release_tag=8"
+            RELEASE_TAG=8
