@@ -39,9 +39,8 @@ jobs:
       
       - name: Build and push
         uses: docker/build-push-action@v3
-        env: |
-          "RELEASE_TAG=8"
         with:
+          build-contexts: RELEASE_TAG=8
           push: true
           context: ./baseos/
           username: ${{ secrets.Docker_Hub_Username }}
