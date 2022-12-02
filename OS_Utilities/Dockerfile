@@ -1,4 +1,4 @@
-FROM bala001/centos:$TAG_NAME
+FROM bala001/centos:${release_tag}
 
 RUN echo "installing centos rpms..." \
     && yum clean all \
