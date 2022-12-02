@@ -17,4 +17,6 @@ jobs:
   call-workflow1:
     needs: [call-workflow]
     uses: ./.github/workflows/sample2.yml
+    with:
+      release_tag: ${{ call-workflow.output }}
     secrets: inherit
