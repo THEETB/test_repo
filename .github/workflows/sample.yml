@@ -12,6 +12,10 @@ on:
         description: "Defines the release tag for each layers"
         required: true
         type: string
+      baseos_tag:
+        description: "Defines the initial base os tag"
+        required: true
+        type: string
     outputs:
       output1:
         description: "Passing the release tag for this layer"
@@ -46,8 +50,8 @@ jobs:
       - name: Setting up release tag for this layer
         id: release_tag
         run: |
-          echo "tag=${{ secrets.RELEASE_TAG }}-${{ env.date }}" >> $GITHUB_ENV
-          echo "tag=${{ secrets.RELEASE_TAG }}-${{ env.date }}" >> $GITHUB_OUTPUT
+          echo "tag=${{ inputs.release_tag }}-${{ env.date }}" >> $GITHUB_ENV
+          echo "tag=${{ inputs.release_tag }}-${{ env.date }}" >> $GITHUB_OUTPUT
           
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -58,4 +62,4 @@ jobs:
           password: ${{ secrets.Docker_Hub_Password }}
           tags: bala001/centos:${{ env.tag }}
           build-args: |
-            RELEASE_TAG=8
+            RELEASE_TAG=${{ inputs.baseos_tag }}
