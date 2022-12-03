@@ -1,4 +1,4 @@
-ADD RELEASE_TAG
+ARG RELEASE_TAG
 FROM bala001/centos:${RELEASE_TAG}
 
 RUN echo "installing centos rpms..." \
