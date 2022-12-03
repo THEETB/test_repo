@@ -6,6 +6,11 @@ name: OS_Utilities
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_call:
+    inputs:
+      release_tag:
+        description: "The release tag of previous layer"
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,7 +44,7 @@ jobs:
       
       - name: Checking the output value of previous workflow_call
         id: output_val
-        run: echo ${{  }}
+        run: echo ${{ inputs.release_tag }}
       
       - name: Build and push
         uses: docker/build-push-action@v3
@@ -50,4 +55,4 @@ jobs:
           password: ${{ secrets.Docker_Hub_Password }}
           tags: bala001/cp-os-utilities:2022q26-${{ env.date }}
           build-args: |
-            RELEASE_TAG=
+            RELEASE_TAG=${{ inputs.release_tag }}
