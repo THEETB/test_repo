@@ -36,7 +36,11 @@ jobs:
       - name: Test with environment variables
         id: date
         run: echo "date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-
+      
+      - name: Checking the output value of previous workflow_call
+        id: output_val
+        run: echo ${{  }}
+      
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
