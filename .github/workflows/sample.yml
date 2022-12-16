@@ -23,14 +23,14 @@ on:
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-    startup:
-      runs-on: ubuntu-latest
-      permissions:
-        id-token: write
-        contents: read
-      defaults:
-        run:
-          shell: bash
+  startup:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    defaults:
+      run:
+        shell: bash
     steps:
       # Set up AWS Credentials so you can have permission to call lambda
       - name: Configure AWS Credentials
