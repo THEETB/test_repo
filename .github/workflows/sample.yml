@@ -23,6 +23,28 @@ on:
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  startup:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    defaults:
+      run:
+        shell: bash
+    steps:
+      # Set up AWS Credentials so you can have permission to call lambda
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::794795657660:role/CUSPFE-RSTUDIO-GBL-GITHUB-ACTIONS-RUNNER-ROLE
+          aws-region: us-east-1
+      # Trigger self-hosted runner by calling lambda to build container
+      - name: Trigger Self Hosted Runner
+        uses: pfizer-analytics/rstudio-github-actions-tools/actions/create-runner@v1
+        with:
+          repository: ${{ github.repository }}
+          gh_pat: ${{ secrets.GH_PAT }}
+          labels: rstudio-docker-demo
   build-and-push:
      runs-on: ubuntu-latest
      outputs:
