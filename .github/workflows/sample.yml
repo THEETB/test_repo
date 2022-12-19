@@ -44,9 +44,10 @@ jobs:
         with:
           repository: ${{ github.repository }}
           gh_pat: ${{ secrets.GH_PAT }}
-          labels: rstudio-docker-demo
+          labels: self-hosted-runner
   build-and-push:
-     runs-on: ubuntu-latest
+     runs-on: [self-hosted, self-hosted-runner]
+     needs: startup
      outputs:
       tag: ${{ steps.release_tag.outputs.tag }}
      steps:      
