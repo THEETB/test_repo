@@ -1,0 +1,22 @@
+# Sample pkgr yaml file to install R Packages
+
+name: Sample pkgr
+
+verison: 1
+
+Packages:
+  - rmarkdown
+  - bitops
+  - caTools
+  - knitr
+  - tidyverse
+  - shiny
+  - logrrr
+  
+Repos:
+  - RSPM: "https://rspm-dev.pfizer.com/cp-r413/latest/"
+  - CRAN_REPO: "https://cran.r-project.org/"
+  - BIOC_REPO: "https://rspm.pfizer.com/cp-r411/latest/"
+  - LOCAL_REPO: "https://rspm.pfizer.com/cp-r403/latest/"
+  - GIT_REPO: "https://rspm.pfizer.com/cp-r403/latest/"
+  - RPACKAGES: "https://cran.r-project.org/"
