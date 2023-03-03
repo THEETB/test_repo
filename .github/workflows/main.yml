@@ -9,9 +9,16 @@ on:
        
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  call-workflow:
-    uses: ./.github/workflows/sample_pkgr.yml
-    secrets: inherit
+  Test_pkgr:
+    runs-on: ubuntu
+    steps:
+      - name: Testing the pkgr
+        run: |
+          apt-get install pkgr
+          pkgr -- version
+#   call-workflow:
+#     uses: ./.github/workflows/sample_pkgr.yml
+#     secrets: inherit
 #     with:
 #       release_tag: 2022q26
 #       baseos_tag: 8
