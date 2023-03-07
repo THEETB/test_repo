@@ -15,7 +15,7 @@ jobs:
       - name: Testing the pkgr
         run: |
           apt-get install pkgr
-          pkgr -- version
+          pkgr --version
 #   call-workflow:
 #     uses: ./.github/workflows/sample_pkgr.yml
 #     secrets: inherit
