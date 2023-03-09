@@ -18,16 +18,16 @@ jobs:
           sudo tar xzf /tmp/pkgr.tar.gz pkgr
           sudo mv pkgr /usr/local/bin/pkgr
           sudo chmod +x /usr/local/bin/pkgr
-          pkgr plan
-#   call-workflow:
-#     uses: ./.github/workflows/sample_pkgr.yml
-#     secrets: inherit
-#     with:
-#       release_tag: 2022q26
-#       baseos_tag: 8
-#   call-workflow1:
-#     needs: call-workflow
-#     uses: ./.github/workflows/sample2.yml
-#     with:
-#       release_tag: ${{ needs.call-workflow.outputs.output1 }}
-#     secrets: inherit
+          pkgr
+  call-workflow:
+    uses: ./.github/workflows/sample_pkgr.yml
+    secrets: inherit
+    with:
+      release_tag: 2022q26
+      baseos_tag: 8
+  call-workflow1:
+    needs: call-workflow
+    uses: ./.github/workflows/sample2.yml
+    with:
+      release_tag: ${{ needs.call-workflow.outputs.output1 }}
+    secrets: inherit
